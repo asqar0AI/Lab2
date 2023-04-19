@@ -80,7 +80,6 @@ public class SuperArrayList<T> implements MyListInterface
 			if(arr[i].equals(item))
 			{
 				remove(i);
-				size --;
 				return true;
 			}
 		}
@@ -90,8 +89,18 @@ public class SuperArrayList<T> implements MyListInterface
 	@Override
 	public Object remove(int index)
 	{
+		validIndexChecker(index);
+		if(size == arr.length)
+		{
+			expand();
+		}
 		T temp = arr[index];
-		
+		for(int i = index; i < size; i ++)
+		{
+			arr[i] = arr[i + 1];
+		}
+		size --;
+		return temp;
 	}
 	
 	@Override
