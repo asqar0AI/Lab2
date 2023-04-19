@@ -99,6 +99,28 @@ public class SuperLinkedList<E> implements MyListInterface
 	@Override
 	public Object remove(int index)
 	{
+		int  curIndex = 0;
+		Node curNode  = this.head;
+		Node prevNode = this.head;
+		if(index == 0)
+		{
+			this.head = curNode.next;
+			return curNode;
+		}
+		while(curNode != null)
+		{
+			if(index == curIndex)
+			{
+				prevNode.next = curNode.next;
+				curNode.next.previous = prevNode;
+				size--;
+				return curNode.value;
+			}
+			curIndex++;
+			prevNode = curNode;
+			curNode = curNode.next;
+			
+		}
 		return null;
 	}
 	
