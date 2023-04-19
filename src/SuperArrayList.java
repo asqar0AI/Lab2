@@ -122,6 +122,15 @@ public class SuperArrayList<T> implements MyListInterface
 		return 0;
 	}
 	
+	private boolean isValidIndex(int index)
+	{
+		if(index >= size || index < 0)
+		{
+			return false;
+		}
+		return true;
+	}
+	
 	@Override
 	public void sort()
 	{
