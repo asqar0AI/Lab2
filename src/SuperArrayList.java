@@ -102,7 +102,8 @@ public class SuperArrayList<T> implements MyListInterface
 	public String toString()
 	{
 		String res = "[";
-		for(int i = 0; i < size; i++) {
+		for(int i = 0; i < size; i++)
+		{
 			res += arr[i];
 		}
 		return res;
