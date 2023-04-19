@@ -35,7 +35,7 @@ public class SuperArrayList<T> implements MyListInterface
 		{
 			expand();
 		}
-		arr[size] = (T)item;
+		arr[size++] = (T)item;
 	}
 	
 	private void expand()
@@ -52,7 +52,16 @@ public class SuperArrayList<T> implements MyListInterface
 	@Override
 	public void add(Object item, int index)
 	{
-	
+		if(size == arr.length)
+		{
+			expand();
+		}
+		for(int i = size - 1; i >= index; i --)
+		{
+			arr[i + 1] = arr[i];
+		}
+		arr[index] = (T)item;
+		size ++;
 	}
 	
 	@Override
