@@ -71,6 +71,15 @@ public class SuperArrayList<T> implements MyListInterface
 	@Override
 	public boolean remove(Object item)
 	{
+		for(int i = 0; i < size; i ++)
+		{
+			if(arr[i].equals(item))
+			{
+				remove(i);
+				size --;
+				return true;
+			}
+		}
 		return false;
 	}
 	
