@@ -7,7 +7,7 @@ public class SuperArrayList<T> implements MyListInterface
 	public SuperArrayList(int size)
 	{
 		this.arr = (T[])new Object[size];
-		this.size = size;
+		this.size = 0;
 	}
 	@Override
 	public int size()
@@ -101,11 +101,13 @@ public class SuperArrayList<T> implements MyListInterface
 	public String toString()
 	{
 		String res = "[";
-		res += arr[0];
 		for(int i = 1; i < size; i++)
 		{
-			res += ", ";
 			res += arr[i];
+			if(i < size - 1)
+			{
+				res += ", ";
+			}
 		}
 		res += "]";
 		return res;
