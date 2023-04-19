@@ -1,6 +1,6 @@
 import Interfaces.MyListInterface;
 
-public class SuperLinkedList<E> implements MyListInterface
+public class SuperLinkedList<E extends Comparable> implements MyListInterface
 {
 	private int size = 0;
 	
@@ -215,8 +215,32 @@ public class SuperLinkedList<E> implements MyListInterface
 	@Override
 	public void sort()
 	{
-	
+		int  n       = 0;
+		Node curNode = this.head;
+		while(curNode != null)
+		{
+			n++;
+			curNode = curNode.next;
+		}
+		
+		for(int i = 0; i < n; i++)
+		{
+			curNode = this.head;
+			while(curNode.next != null)
+			{
+				E data1 = (E)curNode.value;
+				E data2 = (E)curNode.next.value;
+				
+				if(data1.compareTo(data2) > 0)
+				{
+					curNode.next.value = data1;
+					curNode.value = data2;
+				}
+				curNode = curNode.next;
+			}
+		}
 	}
+	
 	
 	public void printList()
 	{
