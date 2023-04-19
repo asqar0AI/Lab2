@@ -180,13 +180,36 @@ public class SuperLinkedList<E> implements MyListInterface
 	@Override
 	public int indexOf(Object o)
 	{
-		return 0;
+		int  index   = 0;
+		Node curNode = this.head;
+		while(curNode != null)
+		{
+			if(curNode.value.equals((E)o))
+			{
+				return index;
+			}
+			index++;
+			curNode = curNode.next;
+		}
+		return -1;
 	}
 	
 	@Override
 	public int lastIndexOf(Object o)
 	{
-		return 0;
+		int  index   = 0;
+		int  flag    = -1;
+		Node curNode = this.head;
+		while(curNode != null)
+		{
+			if(curNode.value.equals((E)o))
+			{
+				flag = index;
+			}
+			index++;
+			curNode = curNode.next;
+		}
+		return flag;
 	}
 	
 	@Override
