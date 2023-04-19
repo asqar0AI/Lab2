@@ -13,19 +13,25 @@ public class SuperArrayList<T> implements MyListInterface
 	@Override
 	public int size()
 	{
-		return 0;
+		return this.size;
 	}
 	
 	@Override
 	public boolean contains(Object o)
 	{
+		for(int i = 0; i < size; i ++)
+		{
+			if(arr[i].equals(o))
+			{
+				return true;
+			}
+		}
 		return false;
 	}
 	
 	@Override
 	public void add(Object item)
 	{
-	
 	}
 	
 	@Override
