@@ -99,7 +99,7 @@ public class SuperArrayList<T> implements MyListInterface
 	@Override
 	public Object get(int index)
 	{
-		return null;
+		return arr[index];
 	}
 	
 	@Override
