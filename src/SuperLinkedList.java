@@ -45,7 +45,21 @@ public class SuperLinkedList<E> implements MyListInterface
 	@Override
 	public void add(Object item)
 	{
-	
+		Node newNode = new Node<>((E)item);
+		if(this.head == null)
+		{
+			this.head = newNode;
+			size++;
+			return;
+		}
+		Node currentNode = this.head;
+		while(currentNode.next != null)
+		{
+			currentNode = currentNode.next;
+		}
+		currentNode.next = newNode;
+		newNode.previous = currentNode;
+		size++;
 	}
 	
 	@Override
