@@ -101,8 +101,10 @@ public class SuperArrayList<T> implements MyListInterface
 	public String toString()
 	{
 		String res = "[";
-		for(int i = 0; i < size; i++)
+		res += arr[0];
+		for(int i = 1; i < size; i++)
 		{
+			res += ", ";
 			res += arr[i];
 		}
 		res += "]";
