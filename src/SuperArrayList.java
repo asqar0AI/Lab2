@@ -6,9 +6,8 @@ public class SuperArrayList<T> implements MyListInterface
 	private T[] arr;
 	public SuperArrayList(int size)
 	{
-		this.arr = (T[])new Object[5];
-		this.size = 0;
-		
+		this.arr = (T[])new Object[size];
+		this.size = size;
 	}
 	@Override
 	public int size()
@@ -106,6 +105,7 @@ public class SuperArrayList<T> implements MyListInterface
 		{
 			res += arr[i];
 		}
+		res += "]";
 		return res;
 	}
 }
