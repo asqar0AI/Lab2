@@ -111,6 +111,13 @@ public class SuperArrayList<T> implements MyListInterface
 	@Override
 	public int lastIndexOf(Object o)
 	{
+		for(int i = size - 1; i >= 0; i--)
+		{
+			if(arr[i].equals(o))
+			{
+				return i;
+			}
+		}
 		return 0;
 	}
 	
