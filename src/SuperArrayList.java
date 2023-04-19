@@ -111,7 +111,14 @@ public class SuperArrayList<T> implements MyListInterface
 	@Override
 	public int indexOf(Object o)
 	{
-		return 0;
+		for(int i = 0; i < size; i++)
+		{
+			if(arr[i].equals(o))
+			{
+				return i;
+			}
+		}
+		throw new IndexOutOfBoundsException();
 	}
 	
 	@Override
@@ -124,7 +131,8 @@ public class SuperArrayList<T> implements MyListInterface
 				return i;
 			}
 		}
-		return 0;
+		throw new IndexOutOfBoundsException();
+		
 	}
 	
 	private void validIndexChecker(int index)
