@@ -87,4 +87,15 @@ public class SuperLinkedList<E> implements MyListInterface
 	{
 	
 	}
+	
+	public void printList()
+	{
+		Node currentNode = this.head;
+		while(currentNode != null)
+		{
+			System.out.print(currentNode.value + " ");
+			currentNode = currentNode.next;
+		}
+		System.out.println();
+	}
 }
