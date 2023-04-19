@@ -31,10 +31,10 @@ public class SuperLinkedList<E> implements MyListInterface
 	@Override
 	public boolean contains(Object o)
 	{
-		Node currentNode = this.head;
-		while(currentNode != null)
+		Node curNode = this.head;
+		while(curNode != null)
 		{
-			if(currentNode.value.equals((E)o))
+			if(curNode.value.equals((E)o))
 			{
 				return true;
 			}
@@ -156,12 +156,24 @@ public class SuperLinkedList<E> implements MyListInterface
 	@Override
 	public void clear()
 	{
-	
+		this.head = new Node<>();
+		this.size = 0;
 	}
 	
 	@Override
 	public Object get(int index)
 	{
+		int  curIndex = 0;
+		Node curNode  = this.head;
+		while(curNode != null)
+		{
+			if(index == curIndex)
+			{
+				return curNode.value;
+			}
+			curIndex++;
+			curNode = curNode.next;
+		}
 		return null;
 	}
 	
