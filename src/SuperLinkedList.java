@@ -25,12 +25,20 @@ public class SuperLinkedList<E> implements MyListInterface
 	@Override
 	public int size()
 	{
-		return 0;
+		return size;
 	}
 	
 	@Override
 	public boolean contains(Object o)
 	{
+		Node currentNode = this.head;
+		while(currentNode != null)
+		{
+			if(currentNode.value.equals((E)o))
+			{
+				return true;
+			}
+		}
 		return false;
 	}
 	
