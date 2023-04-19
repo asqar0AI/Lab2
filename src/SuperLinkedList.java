@@ -65,7 +65,36 @@ public class SuperLinkedList<E> implements MyListInterface
 	@Override
 	public void add(Object item, int index)
 	{
-	
+		Node curNode = this.head;
+		Node newNode  = new Node<>((E)item);
+		int  curIndex = 0;
+		if(index == 0)
+		{
+			Node temp = this.head;
+			this.head = newNode;
+			this.head.next = temp;
+			return;
+		}
+		else if(index >= size)
+		{
+			add((E)item);
+			return;
+		}
+		
+		while(curNode != null)
+		{
+			if(curIndex == index)
+			{
+				curNode.previous.next = newNode;
+				newNode.next = curNode;
+				size++;
+				return;
+			}
+			curIndex++;
+			curNode = curNode.next;
+		}
+		
+		System.out.println("Couldn't add the element");
 	}
 	
 	@Override
