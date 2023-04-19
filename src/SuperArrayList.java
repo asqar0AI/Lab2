@@ -52,6 +52,10 @@ public class SuperArrayList<T> implements MyListInterface
 	@Override
 	public void add(Object item, int index)
 	{
+		if(index < 0)
+		{
+			throw new IndexOutOfBoundsException();
+		}
 		if(index >= size)
 		{
 			add(item);
@@ -100,6 +104,7 @@ public class SuperArrayList<T> implements MyListInterface
 	@Override
 	public Object get(int index)
 	{
+		validIndexChecker(index);
 		return arr[index];
 	}
 	
@@ -122,13 +127,12 @@ public class SuperArrayList<T> implements MyListInterface
 		return 0;
 	}
 	
-	private boolean isValidIndex(int index)
+	private void validIndexChecker(int index)
 	{
 		if(index >= size || index < 0)
 		{
-			return false;
+			throw new IndexOutOfBoundsException();
 		}
-		return true;
 	}
 	
 	@Override
