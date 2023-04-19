@@ -1,6 +1,8 @@
 import Interfaces.MyListInterface;
 
-public class SuperArrayList<T> implements MyListInterface
+import java.util.Collections;
+
+public class SuperArrayList<T extends Comparable> implements MyListInterface
 {
 	private int size;
 	private T[] arr;
@@ -155,7 +157,18 @@ public class SuperArrayList<T> implements MyListInterface
 	@Override
 	public void sort()
 	{
-	
+		for(int i = 0; i < size - 1; i++)
+		{
+			for(int j = 0; j < size - i - 1; j++)
+			{
+				if(arr[j].compareTo(arr[j + 1]) > 0)
+				{
+					T temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+				}
+			}
+		}
 	}
 	
 	@Override
