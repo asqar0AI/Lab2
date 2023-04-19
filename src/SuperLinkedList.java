@@ -52,13 +52,13 @@ public class SuperLinkedList<E> implements MyListInterface
 			size++;
 			return;
 		}
-		Node currentNode = this.head;
-		while(currentNode.next != null)
+		Node curNode = this.head;
+		while(curNode.next != null)
 		{
-			currentNode = currentNode.next;
+			curNode = curNode.next;
 		}
-		currentNode.next = newNode;
-		newNode.previous = currentNode;
+		curNode.next = newNode;
+		newNode.previous = curNode;
 		size++;
 	}
 	
@@ -71,7 +71,29 @@ public class SuperLinkedList<E> implements MyListInterface
 	@Override
 	public boolean remove(Object item)
 	{
-		return false;
+		Node curNode  = this.head;
+		Node prevNode = new Node();
+		if(curNode != null && curNode.value.equals((E)item))
+		{
+			this.head = curNode.next;
+			size--;
+			return true;
+		}
+		while(curNode != null && curNode.value.equals((E)item))
+		{
+			prevNode = curNode;
+			curNode = curNode.next;
+			
+		}
+		if(curNode == null)
+		{
+			return false;
+		}
+		
+		prevNode.next = curNode.next;
+		curNode.next.previous = prevNode;
+		size--;
+		return true;
 	}
 	
 	@Override
