@@ -52,6 +52,10 @@ public class SuperArrayList<T> implements MyListInterface
 	@Override
 	public void add(Object item, int index)
 	{
+		if(index >= size)
+		{
+			add(item);
+		}
 		if(size == arr.length)
 		{
 			expand();
@@ -73,7 +77,8 @@ public class SuperArrayList<T> implements MyListInterface
 	@Override
 	public Object remove(int index)
 	{
-		return null;
+		T temp = arr[index];
+		
 	}
 	
 	@Override
