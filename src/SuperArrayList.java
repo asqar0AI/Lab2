@@ -74,6 +74,46 @@ public class SuperArrayList<T extends Comparable> implements MyListInterface
 		size ++;
 	}
 	
+	// Created 2nd new method addAll for the 2nd assignment defence
+	@Override
+	public void addAll(Object[] item)
+	{
+		while(size + item.length > arr.length)
+		{
+			expand();
+		}
+		for(int i = 0; i < item.length; i ++)
+		{
+			arr[size ++] = (T)item[i];
+		}
+	}
+	
+	// Created 3rd new method addAll for the 2nd assignment defence
+	@Override
+	public void addAll(Object[] item, int index)
+	{
+		if(index < 0)
+		{
+			throw new IndexOutOfBoundsException();
+		}
+		else if(index >= size)
+		{
+			add(item);
+		}
+		while(size + item.length > arr.length)
+		{
+			expand();
+		}
+		for(int i = size + item.length - 1; i >= index; i --)
+		{
+			arr[i] = arr[i - item.length];
+		}
+		for(int i = 0; i < item.length; i ++)
+		{
+			arr[i + index] = (T)item[i];
+		}
+	}
+	
 	@Override
 	public boolean remove(Object item)
 	{

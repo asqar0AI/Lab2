@@ -10,6 +10,10 @@ public interface MyListInterface<T>
 	
 	void add(T item, int index);
 	
+	void addAll(T[] item);
+	
+	void addAll(T[] item, int index);
+	
 	boolean remove(T item);
 	
 	T remove(int index);
