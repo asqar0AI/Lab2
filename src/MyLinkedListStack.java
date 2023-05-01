@@ -16,10 +16,22 @@ public class MyLinkedListStack<T extends Comparable>
 	
 	public T pop()
 	{
+		// gets value of element at top and deletes the element
 		if(list.size() == 0)
 		{
 			throw new EmptyStackException();
 		}
 		return (T)list.remove(0);
 	}
+	
+	public T peek()
+	{
+		// just gets the value of element at top
+		if(list.size() == 0)
+		{
+			throw new EmptyStackException();
+		}
+		return (T)list.get(0);
+	}
+	
 }

@@ -270,7 +270,6 @@ public class MyLinkedList<E extends Comparable> implements MyListInterface
 		}
 	}
 	
-	
 	public void printList()
 	{
 		Node currentNode = this.head;
