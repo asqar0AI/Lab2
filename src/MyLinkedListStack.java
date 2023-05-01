@@ -34,4 +34,14 @@ public class MyLinkedListStack<T extends Comparable>
 		return (T)list.get(0);
 	}
 	
+	public boolean isEmpty()
+	{
+		return list.isEmpty();
+	}
+	
+	public int size()
+	{
+		return list.size();
+	}
+	
 }

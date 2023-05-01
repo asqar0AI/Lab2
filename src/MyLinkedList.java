@@ -269,7 +269,10 @@ public class MyLinkedList<E extends Comparable> implements MyListInterface
 			}
 		}
 	}
-	
+	public boolean isEmpty()
+	{
+		return size == 0 ? true: false;
+	}
 	public void printList()
 	{
 		Node currentNode = this.head;
