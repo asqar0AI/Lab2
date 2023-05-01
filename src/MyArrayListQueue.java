@@ -23,6 +23,14 @@ public class MyArrayListQueue<T extends Comparable>
 	{
 		list.add(item);
 	}
+	public T dequeue()
+	{
+		if(isEmpty())
+		{
+			throw new NoSuchElementException();
+		}
+		return (T)list.remove(0);
+	}
 	
 	public boolean isEmpty()
 	{
