@@ -11,8 +11,20 @@ public class MyArrayListStack<T extends Comparable>
 	{
 		list = new MyArrayList<T>(size);
 	}
+	
+	/**
+	 * Pushes an element onto the top of the stack.
+	 */
 	public void push(T item)
 	{
 		list.add(item);
+	}
+	
+	/**
+	 * Gets the number of elements in the stack.
+	 */
+	public int size()
+	{
+		return list.size();
 	}
 }
