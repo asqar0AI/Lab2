@@ -9,6 +9,21 @@ public class MyLinkedListQueue<T extends Comparable>
 	
 	public void enqueue(T item)
 	{
+		// adding element to queue
 		list.add(item);
+	}
+	public T dequeue()
+	{
+	
+	}
+	
+	public boolean isEmpty()
+	{
+		return list.isEmpty();
+	}
+	
+	public int size()
+	{
+		return list.size();
 	}
 }
