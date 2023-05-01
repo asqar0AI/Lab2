@@ -21,6 +21,18 @@ public class MyArrayListStack<T extends Comparable>
 	}
 	
 	/**
+	 * Removes and returns the top element of the stack.
+	 */
+	public T pop()
+	{
+		if(isEmpty())
+		{
+			throw new EmptyStackException();
+		}
+		return (T)list.remove(size() - 1);
+	}
+	
+	/**
 	 * Returns true if the stack is empty, false otherwise.
 	 */
 	public boolean isEmpty()
