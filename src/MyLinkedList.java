@@ -1,6 +1,6 @@
 import Interfaces.MyListInterface;
 
-public class SuperLinkedList<E extends Comparable> implements MyListInterface
+public class MyLinkedList<E extends Comparable> implements MyListInterface
 {
 	private int size = 0;
 	
@@ -18,7 +18,7 @@ public class SuperLinkedList<E extends Comparable> implements MyListInterface
 	}
 	
 	private Node head;
-	public SuperLinkedList()
+	public MyLinkedList()
 	{
 		this.head = null;
 	}
@@ -124,40 +124,7 @@ public class SuperLinkedList<E extends Comparable> implements MyListInterface
 		}
 	}
 	// Created 1st new method addAll for the 2nd assignment defence
-	@Override
-	public void addAll(Object[] item, int index)
-	{
-		if(item.length == 0)
-			return;
-		Node curNode = this.head;
-		Node newNode = new Node<>((E)item[0]);
-		int  curIndex = 0;
-		if(index == 0)
-		{
-			Node temp = this.head;
-			this.head = newNode;
-			this.head.next = temp;
-			return;
-		}
-		else if(index >= size)
-		{
-			add((E[])item);
-			return;
-		}
-		
-		while(curNode != null)
-		{
-			if(curIndex == index)
-			{
-				curNode.previous.next = newNode;
-				newNode.next = curNode;
-				size++;
-				return;
-			}
-			curIndex++;
-			curNode = curNode.next;
-		}
-	}
+	
 	
 	@Override
 	public boolean remove(Object item)
