@@ -15,4 +15,12 @@ public class MyArrayListQueue<T extends Comparable>
 	{
 		list = new MyArrayList<T>(size);
 	}
+	
+	/**
+	 * Adds an element to the back of the queue.
+	 */
+	public void enqueue(T item)
+	{
+		list.add(item);
+	}
 }
