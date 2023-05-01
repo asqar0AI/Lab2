@@ -36,11 +36,13 @@ public class MyLinkedListStack<T extends Comparable>
 	
 	public boolean isEmpty()
 	{
+		// checks if the Stack is empty
 		return list.isEmpty();
 	}
 	
 	public int size()
 	{
+		// gets the value of size of Stack
 		return list.size();
 	}
 	
