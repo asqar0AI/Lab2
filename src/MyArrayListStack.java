@@ -21,6 +21,14 @@ public class MyArrayListStack<T extends Comparable>
 	}
 	
 	/**
+	 * Returns true if the stack is empty, false otherwise.
+	 */
+	public boolean isEmpty()
+	{
+		return size() == 0;
+	}
+	
+	/**
 	 * Gets the number of elements in the stack.
 	 */
 	public int size()
