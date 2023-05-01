@@ -23,4 +23,12 @@ public class MyArrayListQueue<T extends Comparable>
 	{
 		list.add(item);
 	}
+	
+	/**
+	 * Returns the number of elements in the queue.
+	 */
+	public int size()
+	{
+		return list.size();
+	}
 }
