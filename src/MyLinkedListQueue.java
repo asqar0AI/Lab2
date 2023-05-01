@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class MyLinkedListQueue<T extends Comparable>
 {
 	private MyLinkedList<T> list;
@@ -14,7 +16,11 @@ public class MyLinkedListQueue<T extends Comparable>
 	}
 	public T dequeue()
 	{
-	
+		if(isEmpty())
+		{
+			throw new NoSuchElementException();
+		}
+		return (T)list.remove(0);
 	}
 	
 	public boolean isEmpty()
