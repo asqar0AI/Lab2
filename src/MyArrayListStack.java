@@ -33,6 +33,17 @@ public class MyArrayListStack<T extends Comparable>
 	}
 	
 	/**
+	 * Returns the top element of the stack without removing it.
+	 */
+	public T peek()
+	{
+		if(isEmpty())
+		{
+			throw new EmptyStackException();
+		}
+		return (T)list.get(size() - 1);
+	}
+	/**
 	 * Returns true if the stack is empty, false otherwise.
 	 */
 	public boolean isEmpty()
