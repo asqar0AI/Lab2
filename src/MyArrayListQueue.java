@@ -24,6 +24,11 @@ public class MyArrayListQueue<T extends Comparable>
 		list.add(item);
 	}
 	
+	public boolean isEmpty()
+	{
+		return size() == 0;
+	}
+	
 	/**
 	 * Returns the number of elements in the queue.
 	 */
