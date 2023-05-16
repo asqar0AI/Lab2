@@ -103,8 +103,18 @@ public class MyHashTable<K extends Comparable, V extends Comparable>
 		return null;
 	}
 	
-	public boolean constraints(Object value)
+	public boolean containsKey(K key)
 	{
+		int            index = hash(key);
+		HashNode<K, V> node  = chainArray[index];
+		while(node != null)
+		{
+			if(node.key.equals(key))
+			{
+				return true;
+			}
+			node = node.next;
+		}
 		return false;
 	}
 	
