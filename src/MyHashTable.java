@@ -1,10 +1,12 @@
 import Interfaces.MyHashTableInterface;
 
-public class MyHashTable<V, K extends Comparable> implements MyHashTableInterface
+public class MyHashTable<K, V extends Comparable> implements MyHashTableInterface
 {
 	private class HashNode<K, V>
 	{
-	
+		private K key;
+		private V values;
+		private HashNode<K, V> next;
 	}
 	
 	private HashNode<K, V>[] chainArray;
