@@ -1,8 +1,8 @@
-import Interfaces.MyHashTableInterface;
+
 
 import java.util.Objects;
 
-public class MyHashTable<K, V extends Comparable> implements MyHashTableInterface
+public class MyHashTable<K extends Comparable, V extends Comparable>
 {
 	private class HashNode<K, V>
 	{
@@ -37,38 +37,41 @@ public class MyHashTable<K, V extends Comparable> implements MyHashTableInterfac
 		size = 0;
 	}
 	
-	@Override
 	public int hash(Object key)
 	{
 		int hashCode = key.hashCode();
 		return (hashCode & 0x7fffffff) % M;
 	}
 	
-	@Override
-	public void put(Object key, Object value)
+	public void put(K key, V value)
 	{
-	
+		int            index = hash(key);
+		HashNode<K, V> node  = chainArray[index];
+		while(node != null)
+		{
+			if(node.key.equals(key))
+			{
+				node.value = value;
+				return;
+			}
+			node = node.next;
+		}
+		HashNode<K, V> newNode = new HashNode<K, V>(key, value);
+		newNode.next = chainArray[index];
+		chainArray[index] = newNode;
+		size++;
 	}
 	
-	@Override
-	public Object get(Object key)
-	{
-		return null;
-	}
-	
-	@Override
 	public Object remove(Object key)
 	{
 		return null;
 	}
 	
-	@Override
 	public boolean constraints(Object value)
 	{
 		return false;
 	}
 	
-	@Override
 	public Object getKey(Object value)
 	{
 		return null;
