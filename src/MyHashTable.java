@@ -1,5 +1,7 @@
 import Interfaces.MyHashTableInterface;
 
+import java.util.Objects;
+
 public class MyHashTable<K, V extends Comparable> implements MyHashTableInterface
 {
 	private class HashNode<K, V>
@@ -22,10 +24,24 @@ public class MyHashTable<K, V extends Comparable> implements MyHashTableInterfac
 	private HashNode<K, V>[] chainArray;
 	private int              M = 11;
 	private int              size;
+	
+	public MyHashTable()
+	{
+		chainArray = new HashNode[M];
+		size = 0;
+	}
+	
+	public MyHashTable(int capacity)
+	{
+		chainArray = new HashNode[capacity];
+		size = 0;
+	}
+	
 	@Override
 	public int hash(Object key)
 	{
-		return 0;
+		int hashCode = key.hashCode();
+		return (hashCode & 0x7fffffff) % M;
 	}
 	
 	@Override
