@@ -77,8 +77,29 @@ public class MyHashTable<K extends Comparable, V extends Comparable>
 		return null;
 	}
 	
-	public Object remove(Object key)
+	public V remove(K key)
 	{
+		int            index = hash(key);
+		HashNode<K, V> node  = chainArray[index];
+		HashNode<K, V> prev  = null;
+		while(node != null)
+		{
+			if(node.key.equals(key))
+			{
+				if(prev == null)
+				{
+					chainArray[index] = node.next;
+				}
+				else
+				{
+					prev.next = node.next;
+				}
+				size--;
+				return node.value;
+			}
+			prev = node;
+			node = node.next;
+		}
 		return null;
 	}
 	
