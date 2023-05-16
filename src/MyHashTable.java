@@ -134,9 +134,23 @@ public class MyHashTable<K extends Comparable, V extends Comparable>
 		}
 		return false;
 	}
-	
-	public Object getKey(Object value)
+	public K getKey(V value)
 	{
+		for(int i = 0; i < chainArray.length; i++)
+		{
+			HashNode<K, V> node = chainArray[i];
+			while(node != null)
+			{
+				if(node.value.equals(value))
+				{
+					// Value found, return the associated key
+					return node.key;
+				}
+				node = node.next;
+			}
+		}
+		
+		// Value not found
 		return null;
 	}
 }
