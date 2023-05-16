@@ -118,6 +118,23 @@ public class MyHashTable<K extends Comparable, V extends Comparable>
 		return false;
 	}
 	
+	public boolean containsValue(V value)
+	{
+		for(int i = 0; i < chainArray.length; i++)
+		{
+			HashNode<K, V> node = chainArray[i];
+			while(node != null)
+			{
+				if(node.value.equals(value))
+				{
+					return true;
+				}
+				node = node.next;
+			}
+		}
+		return false;
+	}
+	
 	public Object getKey(Object value)
 	{
 		return null;
