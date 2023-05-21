@@ -13,6 +13,21 @@ public class MyBinarySearchTree<K extends Comparable<K>, V>{
     }
     public void put(K key, V val)
     {
+        root = put(root, key, val);
+    }
+    private Node put(Node node, K key, V val)
+    {
+        if(node == null){
+            return new Node(key, val);
+        }
 
+        int cmp = key.compareTo(node.key);
+        if (cmp < 0){
+            return get(node.left, key);
+        }
+        else if (cmp > 0){
+            return get(node.right, key);
+        }
+        return node;
     }
 }
