@@ -1,4 +1,4 @@
-public class BinarySearchTree<K extends Comparable<K>, V>{
+public class MyBinarySearchTree<K extends Comparable<K>, V>{
     private Node root;
 
     private class Node {
@@ -11,5 +11,8 @@ public class BinarySearchTree<K extends Comparable<K>, V>{
             this.val = val;
         }
     }
+    public void put(K key, V val)
+    {
 
+    }
 }
