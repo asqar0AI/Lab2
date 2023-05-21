@@ -49,4 +49,11 @@ public class MyBinarySearchTree<K extends Comparable<K>, V>{
         }
         return node;
     }
+
+    public Node findMin(Node node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node;
+    }
 }
