@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyBinarySearchTree<K extends Comparable<K>, V>{
     private Node root;
 
@@ -87,6 +90,20 @@ public class MyBinarySearchTree<K extends Comparable<K>, V>{
             }
         }
         return node;
+    }
+
+    public Iterable<K> iterator() {
+        List<K> keys = new ArrayList<>();
+        inorderTraversal(root, keys);
+        return keys;
+    }
+
+    private void inorderTraversal(Node node, List<K> keys) {
+        if (node == null)
+            return;
+        inorderTraversal(node.left, keys); // Traverse left subtree
+        keys.add(node.key); // Add current node's key to the list
+        inorderTraversal(node.right, keys); // Traverse right subtree
     }
 
 
