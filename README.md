@@ -82,3 +82,57 @@ MyHashTable is a Java implementation of a hash table data structure. It provides
     ```
 
 For more details on the implementation and usage, refer to the code and comments in the `MyHashTable.java` file.
+
+# Binary Search Tree (BST) Implementation in Java
+
+This repository contains an implementation of a Binary Search Tree (BST) in Java. A BST is a data structure that allows for efficient insertion, deletion, and retrieval of key-value pairs.
+
+## MyBinarySearchTree
+
+This class represents a Binary Search Tree. It has the following methods:
+
+- `put(key, val)`: Inserts a key-value pair into the BST.
+- `get(key)`: Retrieves the value associated with the specified key.
+- `delete(key)`: Deletes the node with the specified key from the BST.
+- `iterator()`: Returns an iterator that iterates over the keys in ascending order.
+- `size()`: Returns the number of nodes in the BST.
+
+### Usage
+
+1. Create an instance of MyBinarySearchTree:
+
+    ```java
+    MyBinarySearchTree<K, V> bst = new MyBinarySearchTree<>();
+    ```
+
+2. Insert key-value pairs into the BST using the `put()` method:
+
+    ```java
+    bst.put(key, value);
+    ```
+
+3. Retrieve the value associated with a key using the `get()` method:
+
+    ```java
+    V value = bst.get(key);
+    ```
+
+4. Delete a node with a specific key using the `delete()` method:
+
+    ```java
+    bst.delete(key);
+    ```
+
+5. Get an iterator that iterates over the keys in ascending order using the `iterator()` method:
+
+    ```java
+    Iterable<K> keys = bst.iterator();
+    ```
+
+6. Get the number of nodes in the BST using the `size()` method:
+
+    ```java
+    int size = bst.size();
+    ```
+
+For more details on the implementation and usage, refer to the code and comments in the `MyBinarySearchTree.java` file.
