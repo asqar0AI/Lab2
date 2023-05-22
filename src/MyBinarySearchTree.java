@@ -101,10 +101,20 @@ public class MyBinarySearchTree<K extends Comparable<K>, V>{
     private void inorderTraversal(Node node, List<K> keys) {
         if (node == null)
             return;
-        inorderTraversal(node.left, keys); // Traverse left subtree
-        keys.add(node.key); // Add current node's key to the list
-        inorderTraversal(node.right, keys); // Traverse right subtree
+        inorderTraversal(node.left, keys);
+        keys.add(node.key);
+        inorderTraversal(node.right, keys);
     }
 
+    public int size() {
+        return size(root);
+    }
 
+    private int size(Node node) {
+        if (node == null) {
+            return 0;
+        } else {
+            return 1 + size(node.left) + size(node.right);
+        }
+    }
 }
