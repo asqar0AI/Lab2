@@ -2,7 +2,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-public class MyGraph {
+public class MyGraph<V> {
+    private Map<V, Vertex<V>> vertices;
+
+    public MyGraph() {
+        vertices = new HashMap<V, Vertex<V>>();
+    }
+
     private class Vertex<V> {
         private V data;
         private Map<Vertex<V>, Double> adjacentVertices;
@@ -43,5 +49,6 @@ public class MyGraph {
             return adjacentVertices.get(neighbor);
         }
     }
+
 
 }
