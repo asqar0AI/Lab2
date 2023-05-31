@@ -11,6 +11,10 @@ public class MyGraph {
             this.data = data;
             adjacentVertices = new HashMap<>();
         }
+
+        public void addAdjacentVertex(Vertex<V> destination, double weight) {
+            adjacentVertices.put(destination, weight);
+        }
     }
 
 }
