@@ -77,4 +77,9 @@ public class MyGraph<V> {
         destination.removeAdjacentVertex(source);
     }
 
+    public List<Vertex<V>> getNeighbours(V key) {
+        Vertex<V> vertex = vertices.get(key);
+        return vertex.getNeighbours();
+    }
+
 }
