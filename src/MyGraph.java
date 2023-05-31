@@ -15,6 +15,10 @@ public class MyGraph {
         public void addAdjacentVertex(Vertex<V> destination, double weight) {
             adjacentVertices.put(destination, weight);
         }
+
+        public void removeAdjacentVertex(Vertex<V> destination) {
+            adjacentVertices.remove(destination);
+        }
     }
 
 }
