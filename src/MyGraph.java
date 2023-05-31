@@ -19,6 +19,17 @@ public class MyGraph {
         public void removeAdjacentVertex(Vertex<V> destination) {
             adjacentVertices.remove(destination);
         }
+
+        public V getData() {
+            return data;
+        }
+        public List<Vertex<V>> getNeighbours() {
+            ArrayList<Vertex<V>> neighbours = new ArrayList<>();
+            for (Vertex<V> vertex : adjacentVertices.keySet()) {
+                neighbours.add(vertex);
+            }
+            return neighbours;
+        }
     }
 
 }
