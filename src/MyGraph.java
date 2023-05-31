@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 public class MyGraph<V> {
     private Map<V, Vertex<V>> vertices;
 
@@ -82,4 +80,24 @@ public class MyGraph<V> {
         return vertex.getNeighbours();
     }
 
+    public void BFS(V startKey) {
+        Vertex<V> start = vertices.get(startKey);
+        Map<Vertex<V>, Boolean> visited = new HashMap<>();
+        Queue<Vertex<V>> q = new LinkedList<>();
+
+        q.add(start);
+        while (!q.isEmpty()) {
+            Vertex<V> current = q.poll();
+            visited.put(current, true);
+            System.out.print(current.getData() + " ");
+            ArrayList<Vertex<V>> neighbours = (ArrayList<Vertex<V>>) current.getNeighbours();
+            for (Vertex<V> vertex : neighbours) {
+                if (!visited.containsKey(vertex)) {
+                    q.add(vertex);
+                    visited.put(vertex, true);
+                }
+            }
+        }
+
+    }
 }
