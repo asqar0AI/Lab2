@@ -255,4 +255,23 @@ public class MyGraph<V> {
             }
         }
     }
+
+    /**
+     * Prints the graph by displaying each vertex and its connected vertices.
+     * It traverses through each vertex in the graph and prints its data along with its connected vertices.
+     */
+    public void printGraph() {
+        for (Vertex<V> vertex : vertices.values()) {
+            // Get the neighbors of the current vertex
+            ArrayList<Vertex<V>> neighbours = (ArrayList<Vertex<V>>) vertex.getNeighbours();
+
+            // Print the current vertex and its connected vertices
+            System.out.print("Current Vertex -> " + vertex.getData() + "  Connected vertices: ");
+            for (Vertex<V> neighbour : neighbours) {
+                System.out.print(neighbour.getData() + " ");
+            }
+            System.out.println();
+        }
+
+    }
 }
