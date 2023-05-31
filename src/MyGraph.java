@@ -100,4 +100,70 @@ public class MyGraph<V> {
         }
 
     }
+
+    public void Dijkstra(V start) {
+        if (!vertices.containsKey(start)) {
+            System.out.println("Start vertex does not exist in the graph.");
+            return;
+        }
+
+        Vertex<V> startVertex = vertices.get(start);
+
+        Map<Vertex<V>, Double> distances = new HashMap<>();
+        Map<Vertex<V>, Vertex<V>> previousVertices = new HashMap<>();
+
+        for (Vertex<V> vertex : vertices.values()) {
+            if (vertex.equals(startVertex)) {
+                distances.put(vertex, 0.0);
+            } else {
+                distances.put(vertex, Double.POSITIVE_INFINITY);
+            }
+        }
+
+        PriorityQueue<Vertex<V>> queue = new PriorityQueue<>(Comparator.comparingDouble(distances::get));
+        queue.add(startVertex);
+
+        while (!queue.isEmpty()) {
+            Vertex<V> currentVertex = queue.poll();
+
+            if (distances.get(currentVertex) == Double.POSITIVE_INFINITY) {
+                break;
+            }
+
+            for (Vertex<V> neighbor : currentVertex.getNeighbours()) {
+                double edgeWeight = currentVertex.getEdgeWeight(neighbor);
+                double distance = distances.get(currentVertex) + edgeWeight;
+
+                if (distance < distances.get(neighbor)) {
+                    distances.put(neighbor, distance);
+                    previousVertices.put(neighbor, currentVertex);
+                    queue.remove(neighbor);
+                    queue.add(neighbor);
+                }
+            }
+        }
+
+        for (Vertex<V> vertex : vertices.values()) {
+            if (vertex.equals(startVertex)) {
+                System.out.println("Shortest path from " + start + " to " + vertex.getData() + ":");
+                System.out.println(start + " (Distance: 0)");
+            } else if (previousVertices.containsKey(vertex)) {
+                List<Vertex<V>> path = new ArrayList<>();
+                Vertex<V> current = vertex;
+                while (current != null) {
+                    path.add(0, current);
+                    current = previousVertices.get(current);
+                }
+                StringBuilder pathString = new StringBuilder();
+                for (Vertex<V> v : path) {
+                    pathString.append(v.getData()).append(" -> ");
+                }
+                pathString.delete(pathString.length() - 4, pathString.length());
+                System.out.println("Shortest path from " + start + " to " + vertex.getData() + ":");
+                System.out.println(pathString.toString() + " (Distance: " + distances.get(vertex) + ")");
+            } else {
+                System.out.println("There is no path from " + start + " to " + vertex.getData());
+            }
+        }
+    }
 }
