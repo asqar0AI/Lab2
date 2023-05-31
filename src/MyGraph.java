@@ -70,4 +70,11 @@ public class MyGraph<V> {
         return false;
     }
 
+    public void removeEdge(V sourceKey, V destinationKey) {
+        Vertex<V> source = vertices.get(sourceKey);
+        Vertex<V> destination = vertices.get(destinationKey);
+        source.removeAdjacentVertex(destination);
+        destination.removeAdjacentVertex(source);
+    }
+
 }
