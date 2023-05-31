@@ -50,5 +50,16 @@ public class MyGraph<V> {
         }
     }
 
+    public void addVertex(V data) {
+        vertices.put(data, new Vertex<>(data));
+    }
+
+    public void addEdge(V sourceKey, V destinationKey, double weight) {
+        Vertex<V> source = vertices.get(sourceKey);
+        Vertex<V> destination = vertices.get(destinationKey);
+        source.addAdjacentVertex(destination, weight);
+        destination.addAdjacentVertex(source, weight);
+    }
+
 
 }
